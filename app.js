@@ -1,5 +1,7 @@
 /**
- * ReactElement(Object) => HTML(Boowser understandable) 
+ *
+ * ReactElement(Object) => HTML(Boowser understandable)
+ *
  */
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
