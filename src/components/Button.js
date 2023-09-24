@@ -1,5 +1,5 @@
-const Button = () => {
-  return <button className="button">Sort</button>;
+const Button = (props) => {
+  return <button className="button">{props}</button>;
 };
 
 export default Button;
