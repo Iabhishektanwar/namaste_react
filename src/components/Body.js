@@ -19,7 +19,6 @@ const Body = () => {
   useEffect(() => {
     setVenue(venueData);
     setFilteredVenue(venueData);
-    console.log(venueData);
   }, [venueData]);
 
   // setVenue(venueData);
@@ -36,10 +35,10 @@ const Body = () => {
   //Conditional rendering
   return (
     <>
-      <div className="search-container">
+      <div className="m-4 p-4">
         <input
           type="text"
-          className="search-input"
+          className="border border-solid border-black"
           placeholder="Search..."
           value={searchInput}
           onChange={(e) => {
@@ -47,7 +46,7 @@ const Body = () => {
           }}
         />
         <button
-          className="search-button"
+          className="px-4 py-1 bg-green-200 m-4"
           onClick={() => {
             const filteredVenue = venue.filter((v) =>
               v.name.toLowerCase().includes(searchInput.toLowerCase())

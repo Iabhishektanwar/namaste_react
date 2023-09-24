@@ -6,22 +6,20 @@ const Header = () => {
 
   return (
     <>
-      <header>
-        <nav>
-          <ul className="unorderedList">
-            <li className="listItem">
-              <Link to="/">Home</Link>
-            </li>
-            <li className="listItem">
-              <Link to="/about">About</Link>
-            </li>
-            <li className="listItem">
-              <Link to="/contact">Contact</Link>
-            </li>
-            <li className="listItem">{onlineStatus ? "🟢" : "🔴"}</li>
-          </ul>
-        </nav>
-      </header>
+      <div className="flex justify-center bg-blue-100 shadow-md mb-2">
+        <ul className="flex p-4">
+          <li className="mx-4">
+            <Link to="/">Home</Link>
+          </li>
+          <li className="mx-4">
+            <Link to="/about">About</Link>
+          </li>
+          <li className="mx-4">
+            <Link to="/contact">Contact</Link>
+          </li>
+          <li className="mx-4">{onlineStatus ? "🟢" : "🔴"}</li>
+        </ul>
+      </div>
     </>
   );
 };
