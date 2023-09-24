@@ -19,6 +19,7 @@ const Body = () => {
   useEffect(() => {
     setVenue(venueData);
     setFilteredVenue(venueData);
+    console.log(venueData);
   }, [venueData]);
 
   // setVenue(venueData);
