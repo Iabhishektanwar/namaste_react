@@ -1,14 +1,25 @@
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 const Header = () => {
+  const onlineStatus = useOnlineStatus();
+
   return (
     <>
       <header>
-        <h1>Header</h1>
         <nav>
-          <Link to="/">Home</Link>
-          <Link to="/about">About Us</Link>
-          <Link to="/contact">ContactUs</Link>
+          <ul className="unorderedList">
+            <li className="listItem">
+              <Link to="/">Home</Link>
+            </li>
+            <li className="listItem">
+              <Link to="/about">About</Link>
+            </li>
+            <li className="listItem">
+              <Link to="/contact">Contact</Link>
+            </li>
+            <li className="listItem">{onlineStatus ? "🟢" : "🔴"}</li>
+          </ul>
         </nav>
       </header>
     </>

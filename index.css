@@ -133,3 +133,13 @@ header nav a {
 .user-email {
   color: #777;
 }
+.unorderedList {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.listItem {
+  list-style: none;
+}

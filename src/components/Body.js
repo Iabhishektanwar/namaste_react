@@ -2,24 +2,35 @@ import { useState, useEffect } from "react";
 import VenueCard from "./VenueCard";
 import Shimmar from "./Shimmar";
 import { VENUE_DATA } from "../utils/constants";
+import useVenues from "../utils/useVenues";
 
 const Body = () => {
   const [venue, setVenue] = useState([]);
   const [filteredVenue, setFilteredVenue] = useState([]);
-
-  useEffect(() => {
-    fetchData();
-  }, []);
-
-  const fetchData = async () => {
-    const data = await fetch(VENUE_DATA);
-    const venueData = await data.json();
-    const updatedVenues = venueData?.response?.venues;
-    setVenue(updatedVenues);
-    setFilteredVenue(updatedVenues);
-  };
-
   const [searchInput, setSearchInput] = useState("");
+
+  // useEffect(() => {
+  //   const venueData = useVenues();
+  //   setVenue(venueData);
+  //   setFilteredVenue(venueData);
+  // }, []);
+
+  const venueData = useVenues();
+  useEffect(() => {
+    setVenue(venueData);
+    setFilteredVenue(venueData);
+  }, [venueData]);
+
+  // setVenue(venueData);
+  // setFilteredVenue(venueData);
+
+  // const fetchData = async () => {
+  //   const data = await fetch(VENUE_DATA);
+  //   const venueData = await data.json();
+  //   const updatedVenues = venueData?.response?.venues;
+  //   setVenue(updatedVenues);
+  //   setFilteredVenue(updatedVenues);
+  // };
 
   //Conditional rendering
   return (
