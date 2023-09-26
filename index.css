@@ -2,10 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
-/* .body {
+.body {
   display: flex;
   flex-wrap: wrap;
-} 
+}
 
 .card {
   width: 300px;
@@ -45,10 +45,12 @@
   transition: background-color 0.3s ease;
 }
 
+/* Hover effect */
 .button:hover {
   background-color: #2980b9;
 }
 
+/* Style for the search container */
 .search-container {
   display: flex;
   justify-content: center;
@@ -56,6 +58,7 @@
   height: 5vh;
 }
 
+/* Style for the search input */
 .search-input {
   padding: 10px;
   border: 1px solid #ccc;
@@ -64,6 +67,7 @@
   outline: none;
 }
 
+/* Style for the search button */
 .search-button {
   padding: 10px 20px;
   background-color: #007bff;
@@ -75,6 +79,7 @@
   margin-left: 10px;
 }
 
+/* Style for the search button on hover */
 .search-button:hover {
   background-color: #0056b3;
 }
@@ -142,4 +147,3 @@ header nav a {
 .listItem {
   list-style: none;
 }
-*/

@@ -1,3 +1,5 @@
+import { Fragment } from "react";
+
 const VenueCard = (props) => {
   const { venuesData } = props;
   const { name, contact, location } = venuesData;
@@ -24,6 +26,19 @@ const VenueCard = (props) => {
       </div>
     </div>
   );
+};
+
+
+
+export const enhansedVenueCard = (VenueCard) => {
+  return (props) => {
+    return (
+      <Fragment>
+        <label>Has Perk</label>
+        <VenueCard {...props} />
+      </Fragment>
+    );
+  };
 };
 
 export default VenueCard;

@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import VenueCard from "./VenueCard";
+import VenueCard, { enhansedVenueCard } from "./VenueCard";
 import Shimmar from "./Shimmar";
 import { VENUE_DATA } from "../utils/constants";
 import useVenues from "../utils/useVenues";
@@ -16,9 +16,11 @@ const Body = () => {
   // }, []);
 
   const venueData = useVenues();
+  console.log(venueData);
   useEffect(() => {
     setVenue(venueData);
     setFilteredVenue(venueData);
+    console.log(venueData);
   }, [venueData]);
 
   // setVenue(venueData);
@@ -33,12 +35,14 @@ const Body = () => {
   // };
 
   //Conditional rendering
+
+  const EnhansedVenueCard = enhansedVenueCard(VenueCard);
   return (
     <>
-      <div className="m-4 p-4">
+      <div className="search-container">
         <input
           type="text"
-          className="border border-solid border-black"
+          className="search-input"
           placeholder="Search..."
           value={searchInput}
           onChange={(e) => {
@@ -46,7 +50,7 @@ const Body = () => {
           }}
         />
         <button
-          className="px-4 py-1 bg-green-200 m-4"
+          className="search-button"
           onClick={() => {
             const filteredVenue = venue.filter((v) =>
               v.name.toLowerCase().includes(searchInput.toLowerCase())
@@ -73,9 +77,16 @@ const Body = () => {
       <div className="body">
         {filteredVenue.length === 0
           ? Array.from({ length: 50 }, (_, i) => <Shimmar key={i} />)
-          : filteredVenue.map((venuesData) => (
-              <VenueCard key={venuesData.id} venuesData={venuesData} />
-            ))}
+          : filteredVenue.map((venuesData) =>
+              venueData.verified ? (
+                <EnhansedVenueCard
+                  key={venuesData.id}
+                  venuesData={venuesData}
+                />
+              ) : (
+                <VenueCard key={venuesData.id} venuesData={venuesData} />
+              )
+            )}
       </div>
     </>
   );
